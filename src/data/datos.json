@@ -1,0 +1,44 @@
+[
+    {
+        "carga": [
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "100",
+            "103",
+            "105"
+        ],
+        "velocidad": [
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "H",
+            "V",
+            "ZR",
+            "W",
+            "Y"
+        ],
+        "marcas": [
+            "Michelin",
+            "Continental",
+            "Event",
+            "Hankook",
+            "Toledo",
+            "Pirelli",
+            "Dunlop",
+            "Bridgestone",
+            "Rikken",
+            "Ovation",
+            "Firestone"
+        ]
+    }
+]
