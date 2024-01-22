@@ -1,6 +1,13 @@
 <template>
     <HeaderComponent />
     <div>
+        <Message :severity="tkBearer.severity" :life="1000" :closable="false" :sticky="false">
+            <template #messageicon>
+                <span class="ml-2">{{ tkBearer.msg }}</span>
+            </template>
+        </Message>
+    </div>
+    <div>
         <Transition name="side-bar-buscar">
             <div v-show="show" class="flex flex-wrap align-content-center justify-content-center h-23rem">
                 <div>
@@ -16,6 +23,7 @@
     <FooterComponent />
 </template>
 <script setup lang="ts">
+import Message from 'primevue/message';
 import FooterComponent from '@/components/FooterComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import BuscadorNeus from '@/components/BuscadorNeus.vue';
@@ -23,9 +31,12 @@ import { ref } from 'vue';
 import { onMounted } from 'vue';
 import dataNeumaticos from '@/store/data';
 import { useRouter } from 'vue-router';
+import { useAuthStore } from '@/store/auth';
 
+const tkBearer = useAuthStore();
 const router = useRouter();
 const show = ref(false);
+const message = ref(true);
 const store = dataNeumaticos();
 
 interface buscarParametros {
@@ -37,10 +48,11 @@ const buscar = ((medida: buscarParametros) => {
     router.push({ name: 'buscar', params: { campo: medida.campo, valor: medida.valor } });
 })
 
-onMounted(async () => {
+onMounted(() => {
     show.value = true;
     store.getMaster();
 })
+
 </script>
 <style scoped lang="scss">
 * {

@@ -7,7 +7,6 @@ import CrudNeumaticosView from "@/views/CrudNeumaticosView.vue";
 import WelcomeViewVue from "@/views/WelcomeView.vue";
 import ResultBuscarViewVue from "@/views/ResultBuscarView.vue";
 import LoginViewVue from "@/views/LoginView.vue";
-import LogoutView from "@/views/LogoutView.vue";
 import AltaUserView from "@/views/AltaUserView.vue";
 import AreaClienteView from "@/views/AreaClienteView.vue";
 import { useAuthStore } from "@/store/auth";
@@ -39,7 +38,10 @@ const routes: Array<RouteRecordRaw> = [
                 path: '/datos',
                 name: 'datos',
                 component: DatosView,
-                meta: { requiresAuth: true }
+                meta: {
+                    requiresAuth: true,
+                    requiresRole: 'admin'
+                }
             },
             {
                 path: '/buscar/:campo/:valor',
@@ -51,7 +53,10 @@ const routes: Array<RouteRecordRaw> = [
                 path: '/admin',
                 name: 'admin',
                 component: AdminView,
-                meta: { requiresAuth: true },
+                meta: {
+                    requiresAuth: true,
+                    requiresRole: 'admin'
+                },
                 children: [
                     {
                         path: 'neumaticos',
@@ -74,13 +79,12 @@ const routes: Array<RouteRecordRaw> = [
             {
                 path: '/areaCliente',
                 name: 'areaCliente',
-                component: AreaClienteView
-            },
-            {
-                path: '/logout',
-                name: 'logout',
-                component: LogoutView
-            },
+                component: AreaClienteView,
+                meta: {
+                    requiresAuth: true,
+                    requiresRole: 'user'
+                }
+            }
         ]
     }
 ]
@@ -90,10 +94,10 @@ const router = createRouter({
     routes
 })
 
+
 // Guardián de ruta global para verificar la autenticación
 router.beforeEach((to, from, next) => {
-    // Aquí es donde verificarías el estado de autenticación del usuario
-    // tkBearer es tu token de autenticación, aquí asumimos que es accesible en este contexto
+
     const tkBearer = useAuthStore();
 
     // Verificar si la ruta requiere autenticación
@@ -102,8 +106,16 @@ router.beforeEach((to, from, next) => {
         if (!tkBearer.token) {
             next({ path: '/index' });
         } else {
-            // Si el usuario está autenticado, permitir el acceso a la ruta
-            next();
+            //Validar si tiene los permisos
+            if (to.meta.requiresRole) {
+                for (let i = 0; i < tkBearer.role.length; i++) {
+                    if (tkBearer.role[i] === to.meta.requiresRole) {
+                        next();
+                    }
+                }
+            } else {
+                next({ path: '/index' });
+            }
         }
     } else {
         // Si la ruta no requiere autenticación, siempre permitir el acceso

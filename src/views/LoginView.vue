@@ -11,39 +11,41 @@
                 </p>
             </template>
             <template #content>
-                <div class="card flex flex-column gap-3 p-3">
-                    <InputGroup>
-                        <InputGroupAddon>
-                            <i class="pi pi-user"></i>
-                        </InputGroupAddon>
-                        <InputText v-model="username" placeholder="E-mail" />
-                    </InputGroup>
+                <form @submit.prevent="login">
+                    <div class="card flex flex-column gap-3 p-3">
+                        <InputGroup>
+                            <InputGroupAddon>
+                                <i class="pi pi-user"></i>
+                            </InputGroupAddon>
+                            <InputText v-model="username" placeholder="E-mail" required />
+                        </InputGroup>
 
-                    <InputGroup>
-                        <InputGroupAddon>
-                            <i class="pi pi-unlock"></i>
-                        </InputGroupAddon>
-                        <Password v-model="password" placeholder="password" />
-                    </InputGroup>
-                </div>
+                        <InputGroup>
+                            <InputGroupAddon>
+                                <i class="pi pi-unlock"></i>
+                            </InputGroupAddon>
+                            <Password v-model="password" placeholder="password" required />
+                        </InputGroup>
+                    </div>
+                    <div>
+                        <input type="submit" class="w-10 text-left" label="Accede a tu área de cliente">
+                        <p @click="registrar" class="my-4 font-bold" style="cursor: pointer;">
+                            Crea una cuenta
+                        </p>
+                    </div>
+                </form>
             </template>
             <template #footer>
-                <Button @click="login" class="w-10 text-left" label="Accede a tu área de cliente" />
-                <p @click="registrar" class="my-4 font-bold" style="cursor: pointer;">
-                    Crea una cuenta
-                </p>
+
             </template>
         </Card>
     </div>
-    <Message severity="success">Cuenta creada con éxito</Message>
 </template>
 <script setup lang="ts">
-import Message from 'primevue/message';
 import Password from 'primevue/password';
 import InputText from 'primevue/inputtext';
 import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
-import Button from 'primevue/button';
 import Card from 'primevue/card';
 import { reactive, toRefs } from 'vue';
 import { useRouter } from 'vue-router';
@@ -59,8 +61,11 @@ const datos = reactive({
 // Desestructura las referencias para usar en la plantilla
 const { username, password } = toRefs(datos);
 
-const login = (() => {
-    servicio.iniciarSesion(datos);
+const login = (async () => {
+    let checkLogin = await servicio.iniciarSesion(datos);
+    if (checkLogin) {
+        router.push('/index');
+    }
 })
 
 const registrar = (() => {
@@ -80,5 +85,16 @@ const registrar = (() => {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+input[type="submit"] {
+    color: white;
+    background-color: rgb(59, 59, 161);
+    border: none;
+    border-radius: 6px;
+    padding: 5px;
+    cursor: pointer;
+    width: 70%;
+    text-align: center;
 }
 </style>

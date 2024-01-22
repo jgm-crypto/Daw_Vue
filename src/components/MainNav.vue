@@ -17,30 +17,61 @@
 <script lang="ts" setup>
 import { useAuthStore } from '@/store/auth';
 import TabMenu from 'primevue/tabmenu';
-import { watch } from 'vue';
-import { ref } from 'vue';
+import { watch, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const tkBearer = useAuthStore();
 const router = useRouter();
 
 // Supongamos que tkBearer es un ref que puede cambiar y queremos reaccionar a esos cambios.
-watch(tkBearer, (token) => {
-    // Comprobamos si newValue tiene un valor significativo.
-    if (token) {
-        // Si tkBearer tiene valor, agregamos un nuevo objeto al array items.
-        items.value.push({
-            label: 'AREA CLIENTE',
-            icon: 'pi pi-briefcase',
-            command: () => {
-                router.push('/areaCliente');
+watch(() => tkBearer.token, (param) => {
+    if (param != '') {
+        items.value.pop();//Elimino el ultimo enlace 'ACCEDER'
+        //Dependiendo del Rol pinto los enlaces
+        for (let i = 0; i < tkBearer.role.length; i++) {
+            if (tkBearer.role[i] === 'admin') {
+                items.value.push({
+                    label: 'ADMINISTRACIÓN',
+                    icon: 'pi pi-briefcase',
+                    command: () => {
+                        router.push('/admin');
+                    }
+                });
+                items.value.push({
+                    label: 'DATOS',
+                    icon: 'pi pi-chart-line',
+                    command: () => {
+                        router.push('/datos');
+                    }
+                });
             }
-        });
+
+            if (tkBearer.role[i] === 'user') {
+                items.value.push({
+                    label: 'AREA CLIENTE',
+                    icon: 'pi pi-briefcase',
+                    command: () => {
+                        router.push('/areaCliente');
+                    }
+                });
+            }
+        }
         items.value.push({
             label: 'CERRAR SESIÓN',
             icon: 'pi pi-briefcase',
             command: () => {
-                router.push('/logout');
+                tkBearer.logout();
+            }
+        });
+    } else {
+        items.value.splice(1);
+        //Redirijo a Inicio
+        router.push('/index');
+        items.value.push({
+            label: 'ACCEDER',
+            icon: 'pi pi-sign-in',
+            command: () => {
+                router.push('/login');
             }
         });
     }
@@ -52,20 +83,6 @@ const items = ref([
         icon: 'pi pi-home',
         command: () => {
             router.push('/index');
-        }
-    },
-    {
-        label: 'ADMINISTRACIÓN',
-        icon: 'pi pi-briefcase',
-        command: () => {
-            router.push('/admin');
-        }
-    },
-    {
-        label: 'DATOS',
-        icon: 'pi pi-chart-line',
-        command: () => {
-            router.push('/datos');
         }
     },
     {
