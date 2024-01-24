@@ -29,7 +29,6 @@ import HeaderComponent from '@/components/HeaderComponent.vue';
 import BuscadorNeus from '@/components/BuscadorNeus.vue';
 import { ref } from 'vue';
 import { onMounted } from 'vue';
-import dataNeumaticos from '@/store/data';
 import { useRouter } from 'vue-router';
 import { useAuthStore } from '@/store/auth';
 
@@ -37,7 +36,6 @@ const tkBearer = useAuthStore();
 const router = useRouter();
 const show = ref(false);
 const message = ref(true);
-const store = dataNeumaticos();
 
 interface buscarParametros {
     campo: string,
@@ -50,7 +48,6 @@ const buscar = ((medida: buscarParametros) => {
 
 onMounted(() => {
     show.value = true;
-    store.getMaster();
 })
 
 </script>

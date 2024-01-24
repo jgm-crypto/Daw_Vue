@@ -4,9 +4,42 @@
 
         <div
             class="flex lg:justify-content-evenly lg:w-full lg:flex-row lg:align-content-center lg:my-6 flex-column justify-content-around w-6 welcome-nav">
-            <v-button label="Symfony / Vue 3 Composition API" severity="info" raised @click="navigate" />
-            <v-button label="JavaScript / PHP" severity="info" text raised @click="navigate" />
-            <v-button label="Java / Spring" severity="info" text raised @click="navigate" />
+
+            <Card style="width: 25em">
+                <template #header>
+                    <img alt="user header" src="../assets/img/vue.png" class="imgCard" />
+                </template>
+                <template #title> Tecnologías </template>
+                <template #subtitle> Symfony / Vue 3 Composition API /TypeScript / JavaScript </template>
+                <template #content>
+                    <p class="m-0">
+                        Una tienda para visualizar neumaticos y solicitar presupuestos, tiene sección de administración
+                        y un área de clientes.
+                    </p>
+                </template>
+                <template #footer>
+                    <v-button label="Acceder" severity="info" raised @click="navigate('index')" />
+                </template>
+            </Card>
+
+            <Card style="width: 25em">
+                <template #header>
+                    <img alt="user header" src="../assets/img/php.jpg" class="imgCard" />
+                </template>
+                <template #title> Tecnologías </template>
+                <template #subtitle> JavaScript / PHP / HTML / CSS </template>
+                <template #content>
+                    <p class="m-0">
+                        Desarrollada sin ningún framewrok.
+                        Pagina web con secciones; login, proyectos, contacto y presupuestos.
+                    </p>
+                </template>
+                <template #footer>
+                    <v-button label="Acceder" severity="info" raised @click="navigate('php')" />
+                </template>
+            </Card>
+
+            <v-button label="Java / Spring" severity="info" text raised @click="navigate('java')" />
         </div>
 
         <div class="rect">
@@ -52,10 +85,48 @@
                 </div>
             </Transition>
         </div>
+
+        <Card style="width: 40em">
+            <template #header>
+                <img alt="user header" src="../assets/img/node.png" class="imgCard" />
+            </template>
+            <template #title> Configuración Apache </template>
+            <template #content>
+                <p class="m-0">
+                    Para poder ejecutar diferentes proyectos desde Apache, se deben crear diferentes archivos de
+                    configuración para cada host, por ejemplo:<br>
+                    <b>sudo nano /etc/apache2/sites-available/nombre_proyecto.conf</b>, y despues se configuraria asignando
+                    un
+                    nombre para el host.
+                <pre>
+                        &lt;VirtualHost *:80&gt;
+                            ServerName daw_php
+                            DocumentRoot /var/www/daw_php
+
+                            &lt;Directory /var/www/daw_php&gt;
+                                Options -Indexes +FollowSymLinks
+                                AllowOverride All
+                                Require all granted
+                            &lt;/Directory&gt;
+
+                            ErrorLog ${APACHE_LOG_DIR}/proyecto1_error.log
+                            CustomLog ${APACHE_LOG_DIR}/proyecto1_access.log combined
+                        &lt;/VirtualHost&gt;
+                    </pre>
+                Posteriormente se debe configurar el archivo '<b>host</b>' de la maquina local en la ruta
+                <b>C/Windows/System32/drivers/etc</b> y agregar el host con su IP correspondiente,
+                en este caso, la IP de la maquina local y el ServerName asignado.
+                </p>
+            </template>
+            <template #footer>
+            </template>
+        </Card>
+
     </div>
 </template>
 
 <script setup lang="ts">
+import Card from 'primevue/card';
 import Divider from 'primevue/divider';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
@@ -63,8 +134,12 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 const info = ref(false);
 
-const navigate = (() => {
-    router.push('/index');
+const navigate = ((index: string) => {
+    if (index === 'php') {
+        window.location.href = 'http://daw_php/';
+    } else {
+        router.push(`/${index}`);
+    }
 })
 
 onMounted(() => {
@@ -79,9 +154,9 @@ onMounted(() => {
     font-size: 13px;
 }
 
-.p-image {
-    height: 300px;
-    width: 300px;
+.imgCard {
+    width: 100%;
+    height: 200px;
 }
 
 h1,

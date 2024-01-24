@@ -1,22 +1,19 @@
 <template>
-    <TabMenu :model="items">
-        <template #item="{ item, props }">
-            <router-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
-                <a v-ripple :href="href" v-bind="props.action" @click="navigate">
-                    <span :class="item.icon" />
-                    <span class="ml-2">{{ item.label }}</span>
-                </a>
-            </router-link>
-            <a v-else v-ripple :href="item.url" :target="item.target" v-bind="props.action">
-                <span :class="item.icon" />
-                <span class="ml-2">{{ item.label }}</span>
-            </a>
-        </template>
-    </TabMenu>
+    <div>
+        <nav class="sticky flex align-content-center flex-wrap h-5rem mb-5">
+            <ul class="flex align-content-center flex-wrap m-0 h-full">
+                <li v-for="(item, index) in items" :key="index" :class="{ 'active-class': activeItem === item.id }"
+                    class="item flex align-content-center flex-wrap px-3 mx-3 h-full">
+                    <a href="#" @click="item.command">
+                        <i :class="item.icon"></i> {{ item.label }}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </template>
 <script lang="ts" setup>
 import { useAuthStore } from '@/store/auth';
-import TabMenu from 'primevue/tabmenu';
 import { watch, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -31,32 +28,39 @@ watch(() => tkBearer.token, (param) => {
         for (let i = 0; i < tkBearer.role.length; i++) {
             if (tkBearer.role[i] === 'admin') {
                 items.value.push({
+                    id: 'admin',
                     label: 'ADMINISTRACIÓN',
                     icon: 'pi pi-briefcase',
                     command: () => {
                         router.push('/admin');
+                        setActiveItem('admin');
                     }
                 });
                 items.value.push({
+                    id: 'datos',
                     label: 'DATOS',
                     icon: 'pi pi-chart-line',
                     command: () => {
                         router.push('/datos');
+                        setActiveItem('datos');
                     }
                 });
             }
 
             if (tkBearer.role[i] === 'user') {
                 items.value.push({
+                    id: 'areaCliente',
                     label: 'AREA CLIENTE',
                     icon: 'pi pi-briefcase',
                     command: () => {
                         router.push('/areaCliente');
+                        setActiveItem('areaCliente');
                     }
                 });
             }
         }
         items.value.push({
+            id: 'login',
             label: 'CERRAR SESIÓN',
             icon: 'pi pi-briefcase',
             command: () => {
@@ -68,10 +72,12 @@ watch(() => tkBearer.token, (param) => {
         //Redirijo a Inicio
         router.push('/index');
         items.value.push({
+            id: 'login',
             label: 'ACCEDER',
             icon: 'pi pi-sign-in',
             command: () => {
                 router.push('/login');
+                setActiveItem('login');
             }
         });
     }
@@ -79,20 +85,32 @@ watch(() => tkBearer.token, (param) => {
 
 const items = ref([
     {
+        id: 'inicio',
         label: 'INICIO',
         icon: 'pi pi-home',
         command: () => {
             router.push('/index');
-        }
+            setActiveItem('inicio');
+        },
+        linkActivo: 'activo'
     },
     {
+        id: 'login',
         label: 'ACCEDER',
         icon: 'pi pi-sign-in',
         command: () => {
             router.push('/login');
+            setActiveItem('login');
         }
     }
 ]);
+
+const activeItem = ref('');
+
+const setActiveItem = (item: string) => {
+    activeItem.value = item;
+};
+
 
 </script>
 <style scoped lang="scss">
@@ -100,29 +118,59 @@ const items = ref([
     font-family: "Arial Narrow", serif;
 }
 
-.sticky {
-    position: sticky;
-    top: 0;
-    z-index: 10;
+ul,
+li {
+    list-style: none;
 }
 
-.p-tabmenu .p-tabmenu-nav {
-    border: 1px solid orange;
-    border-width: 0 0 3px 0;
+a {
+    text-decoration: none;
+    color: black;
 }
 
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
-    letter-spacing: 3px;
-    color: #6c757d;
-    font-size: 11px;
-    border-width: 0 0 3px 0;
+li {
+    position: relative;
+    /* Relativo para posicionar el pseudo-elemento */
+    z-index: 1;
+}
+
+li::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    top: -1px;
+    /* Para superponer el borde del div padre */
+    right: -1px;
+    left: -1px;
+    border-bottom: 2px solid transparent;
+    /* El borde del pseudo-elemento */
+    z-index: -1;
+    transition: border-color 0.3s;
+}
+
+li:hover::after {
+    color: orange;
     border-color: orange;
 }
 
-.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+li.active-class::after {
+    border-color: orange;
+    /* El color cuando el li es el activo */
+}
+
+.item {
     letter-spacing: 3px;
-    color: #6c757d;
-    border-width: 0 0 3px 0;
-    font-size: 11px;
+}
+
+.activo {
+    border-bottom: 2px solid orange;
+}
+
+.sticky {
+    border-bottom: 2px solid black;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 </style>

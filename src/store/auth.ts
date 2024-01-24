@@ -19,7 +19,6 @@ export const useAuthStore = defineStore('auth', {
     }),
     actions: {
         login(data: responseData) {
-            console.log(data.data.roles);
             this.token = data.token;
             this.severity = 'success';
             this.msg = 'Sesión iniciada';

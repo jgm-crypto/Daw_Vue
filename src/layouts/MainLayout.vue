@@ -17,9 +17,12 @@
   
 <script lang="ts" setup>
 import MainNav from '@/components/MainNav.vue';
+import dataNeumaticos from '@/store/data';
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const isSticky = ref(false);
+const store = dataNeumaticos();
+
 
 const handleScroll = () => {
   const stickyScrollPosition = 100;
@@ -27,6 +30,7 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
+  store.getMaster();
   window.addEventListener('scroll', handleScroll);
 });
 

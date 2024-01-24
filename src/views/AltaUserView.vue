@@ -61,11 +61,14 @@
                             Privacidad, y acepto las Normas de Uso</p>
                     </div>
                     <Divider type="solid" />
-                    <input type="submit" class="text-left" label="Crear cuenta" />
+                    <input type="submit" class="text-center font-bold w-4 p-3" value="ENVIAR" />
                 </form>
             </template>
             <template #footer>
-
+                <div>
+                    <p class="text-white font-bold">¿Ya tienes una cuenta?</p>
+                    <p class="text-white font-bold" style="cursor: pointer;" @click="login">Accede a tu cuenta.</p>
+                </div>
             </template>
         </Card>
     </div>
@@ -98,6 +101,10 @@ const datos = reactive({
 
 // Desestructura las referencias para usar en la plantilla
 const { dni, nombre, apellido, tlf, email, password } = toRefs(datos);
+
+const login = (() => {
+    router.push('/login');
+})
 
 const AltaUsuario = (async () => {
     insert.value = await service.insertCliente(datos);

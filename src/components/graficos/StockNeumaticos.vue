@@ -1,6 +1,9 @@
 <template>
-    <div id="container">
-        <canvas ref="chartRef" id="chart"></canvas>
+    <div class="flex flex-column w-full my-3 sm:my-0 sm:w-5">
+        <p class="head m-0 pl-3 py-3 bg-bluegray-600 text-white">STOCK POR MEDIDAS</p>
+        <div id="container">
+            <canvas ref="chartRef" id="chart"></canvas>
+        </div>
     </div>
 </template>
 <script setup lang="ts">
@@ -18,50 +21,77 @@ const productos = store.neumatico;
 const medidas = productos.map(producto => producto.medida);
 const stock = productos.map(producto => producto.stock);
 
+// Primero, crea un arreglo de objetos que incluya la marca y el stock correspondiente
+let medidaYStock = medidas.map((medida, index) => {
+    return { medida: medida, stock: stock[index] };
+});
+
+// Luego, ordena ese arreglo de objetos basándote en el stock
+medidaYStock.sort((a, b) => b.stock - a.stock);
+
+// Finalmente, separa los objetos ordenados en dos arreglos nuevamente
+const medidasOrdenadas = medidaYStock.map(item => item.medida);
+const stockOrdenado = medidaYStock.map(item => item.stock);
+
 const config = {
     type: 'bar',
     data: {
-        labels: medidas,
+        labels: medidasOrdenadas,
         datasets: [{
-            label: 'Nuevos',
+            label: 'Unidades',
             backgroundColor: 'rgba(19,116,202)',
             color: 'white',
-            data: stock,
+            data: stockOrdenado,
         }]
     },
     options: {
         responsive: true,
         maintainAspectRatio: false,
-        indexAxis: 'x',
+        indexAxis: 'y',
         scales: {
             x: {
                 ticks: {
-                    color: 'white', // Color del texto de los ticks (marcas) del eje x
+                    color: 'black', // Color del texto de los ticks (marcas) del eje x
                 }
             },
             y: {
                 ticks: {
-                    color: 'white', // Color del texto de los ticks (marcas) del eje y
+                    color: 'black', // Color del texto de los ticks (marcas) del eje y
                 }
             }
         },
         plugins: {
             legend: {
                 labels: {
-                    color: 'white' // Color del texto de las leyendas
+                    color: 'black' // Color del texto de las leyendas
                 }
             },
             title: {
-                display: true,
-                text: 'Stock por Medida',
-                color: 'white', // Color del título del gráfico
-                font: {
-                    size: 18 // Puedes también cambiar el tamaño de la fuente y otras propiedades aquí
-                }
+                display: false
             },
             tooltip: {
                 titleFontColor: 'white', // Color del título del tooltip
                 bodyFontColor: 'white', // Color del cuerpo del tooltip
+            }
+        },
+        onClick: function (event, elements) {
+            if (elements.length === 1) {
+                const chart = elements[0].chart;
+                const index = elements[0].index;
+                const label = chart.data.labels[index];
+
+                // Aquí defines los enlaces para cada etiqueta/marca
+                const urlMap = {
+                    'Dunlop': 'url-para-dunlop',
+                    'Michelin': 'url-para-michelin',
+                    // ... más marcas y sus URLs
+                };
+
+                // Redirigir a la URL basada en la etiqueta de la barra a la que se le hizo clic
+                const url = urlMap[label];
+                if (url) {
+                    window.location.href = url; // O puedes usar window.open(url) para abrir en una nueva pestaña
+                }
             }
         }
     }
@@ -81,13 +111,19 @@ onBeforeUnmount(() => {
 });
 </script>
 <style scoped lang="scss">
+.head {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    letter-spacing: 3px;
+    text-align: start;
+    border-radius: 10px 10px 0 0;
+}
+
 #container {
-    overflow-x: auto;
-    background-color: #283B4F;
+    background-color: #ececec;
     padding: 20px 30px;
-    border-radius: 10px;
-    min-height: 340px;
-    width: 40%;
+    border-radius: 0 0 10px 10px;
+    min-height: 500px;
 }
 
 @media (max-width: 770px) {

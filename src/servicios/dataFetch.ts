@@ -131,7 +131,6 @@ class DataFetch {
 
             const responseData = await response.json();
             if (responseData.data.status === 'OK') {
-                console.log(responseData);
                 const tkBearer = useAuthStore();
                 tkBearer.login(responseData);
                 return true;
