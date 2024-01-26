@@ -1,54 +1,30 @@
 <template>
-    <div class="card flex flex-column align-items-center">
-
-
-        <div
-            class="flex lg:justify-content-evenly lg:w-full lg:flex-row lg:align-content-center lg:my-6 flex-column justify-content-around w-6 welcome-nav">
-
-            <Card style="width: 25em">
-                <template #header>
-                    <img alt="user header" src="../assets/img/vue.png" class="imgCard" />
-                </template>
-                <template #title> Tecnologías </template>
-                <template #subtitle> Symfony / Vue 3 Composition API /TypeScript / JavaScript </template>
-                <template #content>
-                    <p class="m-0">
-                        Una tienda para visualizar neumaticos y solicitar presupuestos, tiene sección de administración
-                        y un área de clientes.
-                    </p>
-                </template>
-                <template #footer>
-                    <v-button label="Acceder" severity="info" raised @click="navigate('index')" />
-                </template>
-            </Card>
-
-            <Card style="width: 25em">
-                <template #header>
-                    <img alt="user header" src="../assets/img/php.jpg" class="imgCard" />
-                </template>
-                <template #title> Tecnologías </template>
-                <template #subtitle> JavaScript / PHP / HTML / CSS </template>
-                <template #content>
-                    <p class="m-0">
-                        Desarrollada sin ningún framewrok.
-                        Pagina web con secciones; login, proyectos, contacto y presupuestos.
-                    </p>
-                </template>
-                <template #footer>
-                    <v-button label="Acceder" severity="info" raised @click="navigate('php')" />
-                </template>
-            </Card>
-
-            <v-button label="Java / Spring" severity="info" text raised @click="navigate('java')" />
+    <div class="grid m-0 surface-900 text-50" style="border-top: 30px solid var(--primary-600);min-height: 200px;">
+        <div class="col-10 flex flex-wrap justify-content-center align-content-center">
+            <h1 class="figtree m-0">JGM</h1>
+            <div class="flex flex-wrap align-items-end">
+                <h1 class="m-0 orbitron pb-2 pl-3">FullStack Developer</h1>
+            </div>
         </div>
 
+        <div class="col-1 flex flex-wrap align-content-center justify-content-around">
+            <a href="#" @click="navigate('linkedin')">
+                <i class="pi pi-linkedin" style="font-size: 1.5rem;color: var(--primary-600)"></i>
+            </a>
+            <a href="#" @click="navigate('github')">
+                <i class="pi pi-github" style="font-size: 1.5rem;color: var(--primary-600)"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="card flex flex-column align-items-center">
         <div class="rect">
             <Transition name="info">
                 <div v-show="info"
-                    class="flex lg:justify-content-evenly lg:align-items-center lg:flex-row lg:my-4 flex-column my-2">
+                    class="flex lg:justify-content-evenly lg:align-items-start lg:flex-row lg:my-4 flex-column my-2">
                     <div class="flex flex-column lg:w-3 w-full p-2">
                         <h1 class="m-0 mb-3">FRONT-END</h1>
-                        <p class="m-0">
+                        <p class="m-0 text-left">
                             Amplia experiencia en HTML5, CSS3/SASS y
                             JavaScript. Desarrollo de interfaces web
                             responsive utilizando frameworks modernos
@@ -56,10 +32,10 @@
                         </p>
                     </div>
                     <Divider layout="horizontal" class="flex lg:hidden w-5 mx-auto" />
-                    <Divider layout="vertical" class="hidden lg:flex" />
+                    <Divider layout="vertical" class="hidden lg:flex h-8rem my-auto" />
                     <div class="flex flex-column lg:w-3 w-full p-2">
                         <h1 class="m-0 mb-3">BACK-END</h1>
-                        <p class="m-0">
+                        <p class="m-0 text-left">
                             Desarrollo de aplicaciones robustas en PHP
                             con Symfony, con un enfoque en la eficiencia y
                             la seguridad. Profundo conocimiento de SQL y
@@ -67,10 +43,10 @@
                         </p>
                     </div>
                     <Divider layout="horizontal" class="flex lg:hidden w-5 mx-auto" />
-                    <Divider layout="vertical" class="hidden lg:flex" />
+                    <Divider layout="vertical" class="hidden lg:flex h-8rem my-auto" />
                     <div class="flex flex-column lg:w-3 w-full p-2">
                         <h1 class="m-0 mb-3">SERVIDORES</h1>
-                        <p class="m-0">
+                        <p class="m-0 text-left">
                             At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
                             deleniti
                             atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,
@@ -84,21 +60,90 @@
                     </div>
                 </div>
             </Transition>
-        </div>
 
-        <Card style="width: 40em">
-            <template #header>
-                <img alt="user header" src="../assets/img/node.png" class="imgCard" />
-            </template>
-            <template #title> Configuración Apache </template>
-            <template #content>
-                <p class="m-0">
-                    Para poder ejecutar diferentes proyectos desde Apache, se deben crear diferentes archivos de
-                    configuración para cada host, por ejemplo:<br>
-                    <b>sudo nano /etc/apache2/sites-available/nombre_proyecto.conf</b>, y despues se configuraria asignando
-                    un
-                    nombre para el host.
-                <pre>
+            <div class="flex justify-content-center mt-8">
+                <h1 class="m-0 p-0 text-indigo-800 text-6xl xl:text-8xl figtree">PROYECTOS</h1>
+            </div>
+
+            <div class="flex lg:flex-row lg:my-6 md:justify-content-center md:justify-content-
+                 flex-column align-content-center flex-wrap w-10 m-auto welcome-nav">
+                <div class="xl:w-3 lg:w-4 md:w-7 sm:w-9 w-full my-3 m-auto">
+                    <Card style="height: 100%;">
+                        <template #header>
+                            <img alt="user header" src="../assets/img/vue.png" class="imgCard" />
+                        </template>
+                        <template #title> Tecnologías </template>
+                        <template #subtitle> Symfony / Vue 3 Composition API /TypeScript / JavaScript </template>
+                        <template #content>
+                            <p class="m-0 text-left">
+                                Una tienda para visualizar neumaticos y solicitar presupuestos, tiene sección de
+                                administración
+                                y un área de clientes.
+                            </p>
+                        </template>
+                        <template #footer>
+                            <v-button label="Acceder" severity="info" raised @click="navigate('index')" />
+                        </template>
+                    </Card>
+                </div>
+                <div class="xl:w-3 lg:w-4 md:w-7 sm:w-9 w-full my-3 m-auto">
+                    <Card style="height: 100%;">
+                        <template #header>
+                            <img alt="user header" src="../assets/img/php.jpg" class="imgCard" />
+                        </template>
+                        <template #title> Tecnologías </template>
+                        <template #subtitle> JavaScript / PHP / HTML / CSS </template>
+                        <template #content>
+                            <p class="m-0 text-left">
+                                Desarrollada sin ningún framewrok.
+                                Pagina web con secciones; login, proyectos, contacto y presupuestos.
+                            </p>
+                        </template>
+                        <template #footer>
+                            <v-button label="Acceder" severity="info" raised @click="navigate('php')" />
+                        </template>
+                    </Card>
+                </div>
+                <div class="xl:w-3 lg:w-4 md:w-7 sm:w-9 w-full my-3 m-auto">
+                    <Card style="height: 100%;">
+                        <template #header>
+                            <img alt="user header" src="../assets/img/Java.jpg" class="imgCard" />
+                        </template>
+                        <template #title> Tecnologías </template>
+                        <template #subtitle> Java </template>
+                        <template #content>
+                            <p class="m-0 text-left">
+                                Desarrollada sin ningún framework.
+                                Pagina web con secciones; login, proyectos, contacto y presupuestos.
+                            </p>
+                        </template>
+                        <template #footer>
+                            <v-button label="Acceder" severity="info" text raised @click="navigate('java')" />
+                        </template>
+                    </Card>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 700px;" id="carousel" class="carousel-container my-6">
+        <div class="carousel-inner h-full" :style="{ 'transform': `translateX(-${currentIndex * 100}%)` }">
+            <div v-for="(image, index) in imagenes" :key="index" class="carousel-item h-full"
+                :style="{ 'background-image': 'url(' + image.url + ')', display: 'block' }">
+            </div>
+        </div>
+    </div>
+
+    <!--     <Card style="width: 40em">
+        <template #title> Configuración Apache </template>
+        <template #content>
+            <p class="m-0 text-left">
+                Para poder ejecutar diferentes proyectos desde Apache, se deben crear diferentes archivos de
+                configuración para cada host, por ejemplo:<br>
+                <b>sudo nano /etc/apache2/sites-available/nombre_proyecto.conf</b>, y despues se configuraria asignando
+                un
+                nombre para el host.
+            <pre>
                         &lt;VirtualHost *:80&gt;
                             ServerName daw_php
                             DocumentRoot /var/www/daw_php
@@ -113,26 +158,61 @@
                             CustomLog ${APACHE_LOG_DIR}/proyecto1_access.log combined
                         &lt;/VirtualHost&gt;
                     </pre>
-                Posteriormente se debe configurar el archivo '<b>host</b>' de la maquina local en la ruta
-                <b>C/Windows/System32/drivers/etc</b> y agregar el host con su IP correspondiente,
-                en este caso, la IP de la maquina local y el ServerName asignado.
-                </p>
-            </template>
-            <template #footer>
-            </template>
-        </Card>
-
-    </div>
+            Posteriormente se debe configurar el archivo '<b>host</b>' de la maquina local en la ruta
+            <b>C/Windows/System32/drivers/etc</b> y agregar el host con su IP correspondiente,
+            en este caso, la IP de la maquina local y el ServerName asignado.
+            </p>
+        </template>
+        <template #footer>
+        </template>
+    </Card> -->
 </template>
 
 <script setup lang="ts">
 import Card from 'primevue/card';
 import Divider from 'primevue/divider';
+import { onUnmounted } from 'vue';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const info = ref(false);
+const currentIndex = ref(0);
+
+const imagenes = ref([
+    {
+        url: require('@/assets/img/fs.png')
+    },
+    {
+        url: require('@/assets/img/node.png')
+    },
+    {
+        url: require('@/assets/img/fs4.jpeg')
+    },
+]);
+
+const responsiveOptions = ref([
+    {
+        breakpoint: '1400px',
+        numVisible: 1,
+        numScroll: 1
+    },
+    {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1
+    },
+    {
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1
+    }
+]);
 
 const navigate = ((index: string) => {
     if (index === 'php') {
@@ -142,31 +222,66 @@ const navigate = ((index: string) => {
     }
 })
 
+let autoSlideInterval: number | null = null;
 onMounted(() => {
     info.value = true;
+    autoSlideInterval = setInterval(nextImage, 3000); // Cambia cada 3 segundos
 })
+
+onUnmounted(() => {
+    if (autoSlideInterval !== null) {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = null; // Añade esta línea
+    }
+});
+
+function nextImage() {
+    currentIndex.value = (currentIndex.value + 1) % imagenes.value.length;
+    const slideAmount = currentIndex.value * -100;
+    const innerCarousel = document.querySelector('.carousel-inner') as HTMLElement;
+    if (innerCarousel) {
+        innerCarousel.style.transform = `translateX(${slideAmount}%)`;
+    }
+}
 
 </script>
 
 <style scoped lang="scss">
-* {
-    font-family: "Arial Narrow", serif;
-    font-size: 13px;
-}
-
 .imgCard {
     width: 100%;
     height: 200px;
 }
 
-h1,
-p {
-    text-align: start;
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    /* Cada .carousel-item debe ser del mismo tamaño que el contenedor del carrusel */
+    width: 100%;
+    min-width: 100%;
+    /* Asegúrate de que cada imagen ocupe el ancho completo del contenedor */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .rect {
-    background-image: radial-gradient(var(--primary-300), var(--primary-600));
+    background-image: linear-gradient(to bottom, var(--primary-600), var(--primary-300), white);
     color: var(--primary-color-text);
+}
+
+.proyect {
+    letter-spacing: 5px;
+    font-size: 70px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .info-enter-active,

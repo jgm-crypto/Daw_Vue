@@ -1,5 +1,4 @@
 <template>
-  <p class="title">Symfony / Vue 3 Composition Api / TypeScript / PrimeVue</p>
   <RouterView />
 </template>
 
@@ -11,22 +10,32 @@ body {
   margin: 0;
 }
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: $primary;
+//Fuentes accesibles en todo el proyecto
+.narrow {
+  font-family: "Arial Narrow", serif;
+  font-size: medium;
 }
 
-.title {
-  margin: 0;
+.sans {
+  font-family: sans-serif;
+  font-size: large;
+}
+
+.figtree {
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 8px;
+  font-size: 60px;
+}
+
+.orbitron {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
   letter-spacing: 4px;
-  padding: 12px 0 23px 0;
-  background-color: black;
-  font-size: 13px;
-  color: white;
-  font-weight: bold;
+  font-style: normal;
 }
 
 .style-chooser {
