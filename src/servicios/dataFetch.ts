@@ -144,6 +144,18 @@ class DataFetch {
         }
     }
 
+    async getFichero(nombre: string | RouteParamValue[]): Promise<string> {
+        try {
+            const url = apiUrl.value + `/getTexto/${nombre}`
+            const response = await fetch(url)
+            const text = response.text();
+            return text;
+        } catch (error) {
+            console.log(error);
+            throw new Error("Error al ejecutar la peticion");
+        }
+    }
+
 }
 
 export default DataFetch

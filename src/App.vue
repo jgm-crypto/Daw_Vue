@@ -36,6 +36,7 @@ body {
   font-weight: 400;
   letter-spacing: 4px;
   font-style: normal;
+  font-size: 20px;
 }
 
 .style-chooser {

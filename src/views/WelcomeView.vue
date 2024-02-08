@@ -1,21 +1,36 @@
 <template>
-    <div class="grid m-0 surface-900 text-50" style="border-top: 30px solid var(--primary-600);min-height: 200px;">
-        <div class="col-10 flex flex-wrap justify-content-center align-content-center">
-            <h1 class="figtree m-0">JGM</h1>
-            <div class="flex flex-wrap align-items-end">
-                <h1 class="m-0 orbitron pb-2 pl-3">FullStack Developer</h1>
+    <div class="flex justify-content-center surface-900 text-50"
+        style="border-top: 20px solid var(--primary-600);min-height: 200px;">
+        <div class="grid w-10 m-0">
+            <div class="col-6 flex flex-wrap align-content-center justify-content-start">
+                <h1 class="figtree m-0">JGM</h1>
+                <div class="flex flex-wrap align-items-end">
+                    <h1 class="m-0 orbitron pb-2 pl-3"><span class="text-yellow-400 narrow text-2xl">(</span>FullStack
+                        Developer:<span class="text-teal-500">string</span><span
+                            class="text-yellow-400 narrow text-2xl">)</span></h1>
+                </div>
+            </div>
+
+            <div class="col-5 flex flex-wrap align-items-center justify-content-start">
+                <p class="mx-2 text-500">Sobre mí</p>
+                <p class="m-2 text-500">Habilidades</p>
+                <p class="m-2 text-500">Proyectos</p>
+                <p class="m-2 text-500">Documentación</p>
+                <p class="m-2 text-500">Contacto</p>
+            </div>
+
+            <div class="col-1 flex flex-wrap align-content-center justify-content-around">
+                <a href="#" @click="navigate('linkedin')">
+                    <i class="pi pi-linkedin" style="font-size: 1.5rem;color: var(--primary-600)"></i>
+                </a>
+                <a href="#" @click="navigate('github')">
+                    <i class="pi pi-github" style="font-size: 1.5rem;color: var(--primary-600)"></i>
+                </a>
             </div>
         </div>
-
-        <div class="col-1 flex flex-wrap align-content-center justify-content-around">
-            <a href="#" @click="navigate('linkedin')">
-                <i class="pi pi-linkedin" style="font-size: 1.5rem;color: var(--primary-600)"></i>
-            </a>
-            <a href="#" @click="navigate('github')">
-                <i class="pi pi-github" style="font-size: 1.5rem;color: var(--primary-600)"></i>
-            </a>
-        </div>
     </div>
+
+    <TecnoComponent />
 
     <div class="card flex flex-column align-items-center">
         <div class="rect">
@@ -61,8 +76,8 @@
                 </div>
             </Transition>
 
-            <div class="flex justify-content-center mt-8">
-                <h1 class="m-0 p-0 text-indigo-800 text-6xl xl:text-8xl figtree">PROYECTOS</h1>
+            <div class="flex justify-content-center surface-900 text-50 mt-8">
+                <h1 class="m-0 p-0 figtree">PROYECTOS</h1>
             </div>
 
             <div class="flex lg:flex-row lg:my-6 md:justify-content-center md:justify-content-
@@ -70,12 +85,14 @@
                 <div class="xl:w-3 lg:w-4 md:w-7 sm:w-9 w-full my-3 m-auto">
                     <Card style="height: 100%;">
                         <template #header>
-                            <img alt="user header" src="../assets/img/vue.png" class="imgCard" />
+                            <div class="w-10 m-auto p-4 border-round-md">
+                                <img alt="user header" src="../assets/img/vue.png" class="imgCard border-round-md" />
+                            </div>
                         </template>
                         <template #title> Tecnologías </template>
                         <template #subtitle> Symfony / Vue 3 Composition API /TypeScript / JavaScript </template>
                         <template #content>
-                            <p class="m-0 text-left">
+                            <p class="m-0 text-left sans">
                                 Una tienda para visualizar neumaticos y solicitar presupuestos, tiene sección de
                                 administración
                                 y un área de clientes.
@@ -89,12 +106,14 @@
                 <div class="xl:w-3 lg:w-4 md:w-7 sm:w-9 w-full my-3 m-auto">
                     <Card style="height: 100%;">
                         <template #header>
-                            <img alt="user header" src="../assets/img/php.jpg" class="imgCard" />
+                            <div class="w-10 m-auto p-4 border-round-md">
+                                <img alt="user header" src="../assets/img/php.jpg" class="imgCard border-round-md" />
+                            </div>
                         </template>
                         <template #title> Tecnologías </template>
                         <template #subtitle> JavaScript / PHP / HTML / CSS </template>
                         <template #content>
-                            <p class="m-0 text-left">
+                            <p class="m-0 text-left sans">
                                 Desarrollada sin ningún framewrok.
                                 Pagina web con secciones; login, proyectos, contacto y presupuestos.
                             </p>
@@ -107,12 +126,14 @@
                 <div class="xl:w-3 lg:w-4 md:w-7 sm:w-9 w-full my-3 m-auto">
                     <Card style="height: 100%;">
                         <template #header>
-                            <img alt="user header" src="../assets/img/Java.jpg" class="imgCard" />
+                            <div class="w-10 m-auto p-4 border-round-md">
+                                <img alt="user header" src="../assets/img/Java.jpg" class="imgCard border-round-md" />
+                            </div>
                         </template>
                         <template #title> Tecnologías </template>
                         <template #subtitle> Java </template>
                         <template #content>
-                            <p class="m-0 text-left">
+                            <p class="m-0 text-left sans">
                                 Desarrollada sin ningún framework.
                                 Pagina web con secciones; login, proyectos, contacto y presupuestos.
                             </p>
@@ -171,6 +192,7 @@
 <script setup lang="ts">
 import Card from 'primevue/card';
 import Divider from 'primevue/divider';
+import TecnoComponent from '@/components/welcome/TecnoComponent.vue';
 import { onUnmounted } from 'vue';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
@@ -189,29 +211,6 @@ const imagenes = ref([
     {
         url: require('@/assets/img/fs4.jpeg')
     },
-]);
-
-const responsiveOptions = ref([
-    {
-        breakpoint: '1400px',
-        numVisible: 1,
-        numScroll: 1
-    },
-    {
-        breakpoint: '1199px',
-        numVisible: 3,
-        numScroll: 1
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 2,
-        numScroll: 1
-    },
-    {
-        breakpoint: '575px',
-        numVisible: 1,
-        numScroll: 1
-    }
 ]);
 
 const navigate = ((index: string) => {

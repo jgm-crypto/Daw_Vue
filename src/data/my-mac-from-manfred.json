@@ -1,0 +1,376 @@
+{
+  "$schema": "https://raw.githubusercontent.com/getmanfred/mac/v0.5/schema/schema.json",
+  "settings": {
+    "language": "ES",
+    "MACVersion": "0.5"
+  },
+  "aboutMe": {
+    "profile": {
+      "name": "Jesús",
+      "surnames": "Garriga Martín",
+      "title": "FullStack Developer, Valencia",
+      "description": "Soy un desarrollador FullStack con experiencia previa en el sector de la automoción, donde desarrollé mi capacidad organizativa y actitud proactiva. Motivado por mi pasión por la tecnología y el deseo de enfrentar nuevos retos, inicié mi transición hacia el sector de la programación. Comencé con un curso de desarrollo de páginas web, seguido por el grado superior en Desarrollo de Aplicaciones Web (DAW), todo esto mientras trabajaba. He adquirido 1 año de experiencia en el desarrollo y mantenimiento de una API de compras utilizando Symfony y PHP. Además, he desarrollado un dashboard para la predicción de ventas/compras con Vue.js.",
+      "avatar": {
+        "link": "https://media-asgard.s3.eu-west-1.amazonaws.com/24/01/20/dbf3ce1f-e189-49e3-9f3d-b7b441807f1f_linkedin-photo-52488.linkedin-photo-52488",
+        "alt": "24/01/20/dbf3ce1f-e189-49e3-9f3d-b7b441807f1f_linkedin-photo-52488.linkedin-photo-52488"
+      },
+      "location": {
+        "notes": "Autocompleted using Google Maps API (id: ChIJh14zFWtJYA0RWdoxvb4Vtuk)",
+        "country": "España",
+        "region": "Comunidad Valenciana"
+      }
+    },
+    "relevantLinks": [
+      {
+        "type": "linkedin",
+        "URL": "https://linkedin.com/in/jesus-garriga-martin-947560192"
+      },
+      {
+        "type": "github",
+        "URL": "https://github.com/jgm-crypto"
+      }
+    ]
+  },
+  "experience": {
+    "jobs": [
+      {
+        "organization": {
+          "name": "Controliza",
+          "image": {
+            "link": "https://media-asgard.s3.eu-west-1.amazonaws.com/24/01/20/28272d62-4f79-488c-be05-fb0ebf2e116d_linkedin-photo-52488.linkedin-photo-52488",
+            "alt": "24/01/20/28272d62-4f79-488c-be05-fb0ebf2e116d_linkedin-photo-52488.linkedin-photo-52488"
+          }
+        },
+        "roles": [
+          {
+            "name": "Full Stack Engineer",
+            "startDate": "2022-10-01",
+            "finishDate": "2023-11-30",
+            "challenges": [
+              {
+                "description": "Mantenimiento de aplicaciones, desarrollo BackEnd con Symfony y desarrollo FrontEnd con Vue.js"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "organization": {
+          "name": "Grupo CTC",
+          "image": {
+            "link": "https://media-asgard.s3.eu-west-1.amazonaws.com/24/01/20/33045b75-05eb-48ff-9107-cbd812fd2102_linkedin-photo-52488.linkedin-photo-52488",
+            "alt": "24/01/20/33045b75-05eb-48ff-9107-cbd812fd2102_linkedin-photo-52488.linkedin-photo-52488"
+          }
+        },
+        "roles": [
+          {
+            "name": "Jefe de taller",
+            "startDate": "2022-06-01",
+            "finishDate": "2022-10-31",
+            "challenges": [
+              {
+                "description": "Skills: Habilidades sociales"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "organization": {
+          "name": "Neumateco"
+        },
+        "roles": [
+          {
+            "name": "responsable de taller",
+            "startDate": "2021-04-01",
+            "finishDate": "2022-02-28",
+            "challenges": [
+              {
+                "description": "Participe en la apertura de este centro, durante 9 meses he desempeñado la funcion de responsable de taller, gestionando la carga de trabajo, siempre intentando mejorar las ventas ajustando los horarios del centro y analizando las ventas en funcion de los clientes y las zonas mas proximas al centro."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "organization": {
+          "name": "Norauto España",
+          "image": {
+            "link": "https://media-asgard.s3.eu-west-1.amazonaws.com/24/01/20/2f1f6783-6f91-4e88-95d0-3c1ee19b4dcb_linkedin-photo-52488.linkedin-photo-52488",
+            "alt": "24/01/20/2f1f6783-6f91-4e88-95d0-3c1ee19b4dcb_linkedin-photo-52488.linkedin-photo-52488"
+          }
+        },
+        "roles": [
+          {
+            "name": "Mecánico",
+            "startDate": "2005-05-01",
+            "finishDate": "2016-09-30",
+            "challenges": [
+              {
+                "description": "Skills: Habilidades sociales"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "knowledge": {
+    "languages": [
+      {
+        "name": "EN",
+        "fullName": "Inglés",
+        "level": "Limited working proficiency"
+      }
+    ],
+    "hardSkills": [
+      {
+        "skill": {
+          "name": "CSS",
+          "type": "technology"
+        }
+      },
+      {
+        "skill": {
+          "name": "Git",
+          "type": "technology"
+        }
+      },
+      {
+        "skill": {
+          "name": "HTML",
+          "type": "technology"
+        }
+      },
+      {
+        "skill": {
+          "name": "JAVA",
+          "type": "technology"
+        }
+      },
+      {
+        "skill": {
+          "name": "JSON",
+          "type": "technology"
+        }
+      },
+      {
+        "skill": {
+          "name": "JavaScript",
+          "type": "technology"
+        }
+      },
+      {
+        "skill": {
+          "name": "MySQL",
+          "type": "technology"
+        }
+      },
+      {
+        "skill": {
+          "name": "PHP",
+          "type": "technology"
+        }
+      },
+      {
+        "skill": {
+          "name": "PL/SQL",
+          "type": "technology"
+        }
+      },
+      {
+        "skill": {
+          "name": "Sass",
+          "type": "technology"
+        }
+      },
+      {
+        "skill": {
+          "name": "Symfony",
+          "type": "technology"
+        }
+      },
+      {
+        "skill": {
+          "name": "Vue",
+          "type": "technology"
+        }
+      }
+    ],
+    "studies": [
+      {
+        "studyType": "officialDegree",
+        "degreeAchieved": true,
+        "name": "Ciclo Formativo de Grado Superior Desarrollo de aplicaciones web (DAW)",
+        "startDate": "2020-10-01",
+        "institution": {
+          "name": "Ilerna"
+        },
+        "finishDate": "2022-10-01",
+        "linkedCompetences": [
+          {
+            "name": "C#",
+            "type": "technology"
+          },
+          {
+            "name": "CSS",
+            "type": "technology"
+          },
+          {
+            "name": "HTML",
+            "type": "technology"
+          },
+          {
+            "name": "JAVA",
+            "type": "technology"
+          },
+          {
+            "name": "JavaScript",
+            "type": "technology"
+          },
+          {
+            "name": "PHP",
+            "type": "technology"
+          },
+          {
+            "name": "jQuery",
+            "type": "technology"
+          }
+        ]
+      },
+      {
+        "studyType": "unaccredited",
+        "degreeAchieved": true,
+        "name": "Programación páginas web",
+        "startDate": "2018-09-01",
+        "institution": {
+          "name": "MasterD"
+        },
+        "finishDate": "2019-05-01",
+        "linkedCompetences": [
+          {
+            "name": "CSS",
+            "type": "technology"
+          },
+          {
+            "name": "HTML",
+            "type": "technology"
+          },
+          {
+            "name": "JavaScript",
+            "type": "technology"
+          },
+          {
+            "name": "MySQL",
+            "type": "technology"
+          },
+          {
+            "name": "PHP",
+            "type": "technology"
+          },
+          {
+            "name": "jQuery",
+            "type": "technology"
+          }
+        ]
+      }
+    ],
+    "softSkills": [
+      {
+        "skill": {
+          "name": "Adaptabilidad al cambio",
+          "type": "practice"
+        }
+      },
+      {
+        "skill": {
+          "name": "Aprendizaje Continuo",
+          "type": "practice"
+        }
+      },
+      {
+        "skill": {
+          "name": "Proactividad",
+          "type": "practice"
+        }
+      }
+    ]
+  },
+  "careerPreferences": {
+    "contact": {
+      "publicProfiles": [
+        {
+          "URL": "https://linkedin.com/in/jesus-garriga-martin-947560192",
+          "type": "linkedin"
+        },
+        {
+          "URL": "https://github.com/jgm-crypto",
+          "type": "github"
+        }
+      ],
+      "contactMails": [
+        "jesusgarrigamartin@gmail.com"
+      ]
+    },
+    "preferences": {
+      "preferredCompetences": [
+        {
+          "name": "JAVA",
+          "type": "technology"
+        },
+        {
+          "name": "Python",
+          "type": "technology"
+        },
+        {
+          "name": "Spring",
+          "type": "technology"
+        },
+        {
+          "name": "Symfony",
+          "type": "technology"
+        },
+        {
+          "name": "TypeScript",
+          "type": "technology"
+        },
+        {
+          "name": "Vue",
+          "type": "technology"
+        }
+      ],
+      "preferredRoles": [
+        "Backend Developer",
+        "Frontend Developer",
+        "Full-stack Developer"
+      ]
+    },
+    "status": "searchingActively"
+  },
+  "manfredSpecificData": {
+    "mainStackTechs": [
+      {
+        "name": "JavaScript",
+        "type": "technology"
+      },
+      {
+        "name": "MySQL",
+        "type": "technology"
+      },
+      {
+        "name": "PHP",
+        "type": "technology"
+      },
+      {
+        "name": "Symfony",
+        "type": "technology"
+      },
+      {
+        "name": "Vue",
+        "type": "technology"
+      }
+    ],
+    "desiredJobDescription": "Me gustaría trabajar con nuevos proyectos, donde pudiese seguir adquiriendo nuevos conocimientos, o implementando nuevas mejoras y procesos en API's ya desarrolladas, quiero formar parte de un equipo que se apoye mutuamente, donde todos aprendamos de todos, con un buen ambiente. No me importa tener que trabajar con herramientas que nunca halla usado, me encanta aprender y formarme.",
+    "goodPractices": "En mi carrera en el sector de la automoción y en el desarrollo de software, siempre he enfocado en la organización meticulosa y la documentación detallada. Al iniciar un proyecto, priorizo la estructuración clara de procesos y la documentación de cada paso, lo que facilita el mantenimiento y las futuras ampliaciones o refactorizaciones del código. En mi enfoque de desarrollo, aplico la modularización del código, el uso de variables parametrizadas, la implementación de bloques try/catch para una gestión eficaz de excepciones, y la inclusión de comentarios exhaustivos. Estas prácticas no solo mejoran la eficiencia y la calidad del trabajo, sino que también promueven una colaboración más efectiva en los equipos."
+  }
+}

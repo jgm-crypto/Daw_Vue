@@ -1,0 +1,50 @@
+[
+    {
+        "title": "back-end",
+        "content": "El backend es un término que utilizamos para referirnos a la arquitectura interna de un sitio web. Esta área lógica, que no es visible a los ojos del usuario y no incluye elementos de tipo gráfico, permite que todos los elementos de una web desarrollen la función correcta."
+    },
+    {
+        "title": "front-end",
+        "content": "El desarrollo web front-end se refiere a la práctica de construir y diseñar la interfaz de usuario de un sitio web o aplicación. Esto implica trabajar con tecnologías del lado del cliente, como HTML, CSS y JavaScript, para crear páginas web interactivas y visualmente atractivas.s"
+    },
+    {
+        "title": "symfony",
+        "content": "",
+        "documentation": "https://symfony.com/"
+    },
+    {
+        "title": "php",
+        "content": "",
+        "documentation": "https://www.php.net/manual/es/intro-whatis.php"
+    },
+    {
+        "title": "vue",
+        "content": "",
+        "documentation": "https://vuejs.org/"
+    },
+    {
+        "title": "javascript",
+        "content": "",
+        "documentation": "https://lenguajejs.com/javascript/"
+    },
+    {
+        "title": "typescript",
+        "content": "",
+        "documentation": "https://www.typescriptlang.org/"
+    },
+    {
+        "title": "html",
+        "content": "",
+        "documentation": "https://developer.mozilla.org/es/docs/Web/HTML"
+    },
+    {
+        "title": "css",
+        "content": "",
+        "documentation": ""
+    },
+    {
+        "title": "java",
+        "content": "Java es un lenguaje de programación y una plataforma informática que fue comercializada por primera vez en 1995 por Sun Microsystems.",
+        "documentation": "https://docs.oracle.com/javase/8/docs/api/"
+    }
+]
